@@ -1,0 +1,55 @@
+{% extends "testbootstrap.html" %}
+
+{% block body %}
+<!--<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>-->
+<!-- Use any element to open the sidenav 
+<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button> -->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+
+<div id="main">
+  <h1>Welcome {{ user_email }} </h1>
+</div>
+
+<table id="t01a" class="center">
+  <tr>
+    <th>Morning Assembly Venue</th>
+    <th>Personnel Involved</th>
+  </tr>
+  {% for venue in venues %}
+  <tr>
+    <td>Parade Square</td>
+    <td>{{ venue[1] }}</td>
+  </tr>
+  <tr>
+    <td>Classroom</td>
+    <td>{{ venue[2] }}</td>
+  </tr>
+  <tr>
+    <td>Hall</td>
+    <td>{{ venue[3] }}</td>
+  </tr>
+  <tr>
+    <td>PAC</td>
+    <td>{{ venue[4] }}</td>
+  </tr>
+  <tr>
+    <td>Auditorium</td>
+    <td>{{ venue[5] }}
+  {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<p>                                                        
+
+
+
+
+</p>
+{% endblock %}

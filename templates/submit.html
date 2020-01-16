@@ -1,0 +1,25 @@
+{% extends "testbootstrap.html" %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond|PT+Sans:400,400i,700,700i&subset=latin-ext" rel="stylesheet">
+<!-- Use any element to open the sidenav
+<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+    <h1 align="center">Update Submission</h1>
+</div>
+
+<div class='container'>
+<form action="/submit2" method="post">
+    <h4>What are you submitting for?</h4>
+    <select name="group">
+        <option value="competition">Competitions</option>
+        <option value="announcements">Announcements</option>
+        <option value="morning">Morning flagraising</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+</div>
+
+{% endblock %}

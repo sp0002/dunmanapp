@@ -3,12 +3,7 @@ import json
 import os
 import sqlite3
 from datetime import datetime, timedelta
-'''
-#imports for webview
-import sys
-import threading
-import webview
-'''
+
 # Third party libraries
 from flask import Flask, redirect, request, url_for, render_template
 from flask_login import (
@@ -24,10 +19,11 @@ import requests
 # Internal imports
 from db import init_db_command, get_db
 from user import User
-
+year = str(datetime.today().year)
+year = year[2:]
 # Configuration
-GOOGLE_CLIENT_ID = "685992959593-9pukd1atbt6a7eoce1btivel9ihkb5fs.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = "WWl12m4EZ5e7whMxijNUgV4y"
+GOOGLE_CLIENT_ID = "171099557791-u72uro3ecbc2fcrjkbstrrh10kdrence.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "kTjpc7Pj1P7QO4X8YmALyZJf"
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
@@ -54,7 +50,7 @@ except sqlite3.OperationalError:
     # Assume it's already been created
     pass
 
-PERMS = ["wee.jiawei.kevan@dhs.sg", "khoo.phaikchoo.carina@dhs.sg", "xun.shengdi@dhs.sg", "mathew.rithu.ann@dhs.sg", "liu.yixuan@dhs.sg", "tee.renwey@dhs.sg", "lim.valerie@dhs.sg"]
+PERMS = ["ivan.ng.qifan@dhs.sg","gu.boyuan@dhs.sg","wee.jiawei.kevan@dhs.sg", "khoo.phaikchoo.carina@dhs.sg", "xun.shengdi@dhs.sg", "mathew.rithu.ann@dhs.sg", "liu.yixuan@dhs.sg", "tee.renwey@dhs.sg", "lim.valerie@dhs.sg"]
 
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
@@ -68,14 +64,17 @@ def load_user(user_id):
 @app.route("/")
 def index():
     if current_user.is_authenticated:
-        return render_template("index.html", admin=current_user.admin)
+        connection = sqlite3.connect("sqlite_db")
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM flagraising")
+        venues = cursor.fetchall()
+        connection.close()
+        user_email = current_user.name
+        print(user_email)
+        return render_template("index.html", admin=current_user.admin, venues=venues, user_email=user_email)
     else:
         return render_template("login2.html")
 
-#tobedeletedlater
-@app.route("/notifs")
-def notifs():
-    return render_template("test.html")
 
 @app.route("/about")
 @login_required
@@ -123,15 +122,31 @@ def announcements():
 
     return render_template("announcements.html", admin=current_user.admin, announcements=announcements)
 
-@app.route("/morning")
+@app.route("/annoucements_details")
 @login_required
-def morning():
+def announcements_details():
+    
+    #insert read databse
+    
+    
+    return render_template("announcements_details", admin=current_user.admin)
+
+@app.route("/links")
+@login_required
+def links():
+    return render_template("links.html", admin=current_user.admin)
+
+
+@app.route("/totw")
+@login_required
+def totw():
     connection = sqlite3.connect("sqlite_db")
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM flagraising")
-    venues = cursor.fetchall()
+    cursor.execute("SELECT * FROM totw")
+    totw = cursor.fetchall()
+    connection.commit()
     connection.close()
-    return render_template("morning.html", admin=current_user.admin, venues=venues[0])
+    return render_template("totw.html", admin=current_user.admin, totw=totw)
 
 @app.route("/submit")
 @login_required
@@ -175,9 +190,17 @@ def delete2():
 @app.route("/deletion", methods=["POST"])
 @login_required
 def deletion():
-    value = request.form.get("value")
-    #delete code goes here
-    return value
+    todelete = request.form.get("todelete")
+    group = request.form.get("group")
+    if todelete is not None:
+        connection = sqlite3.connect("sqlite_db")
+        cursor = connection.cursor()
+        cursor.execute("DELETE FROM {} WHERE id={}".format(group, todelete))
+        connection.commit()
+        connection.close()
+        return render_template("success_delete.html", admin=current_user.admin)
+    else:
+        return render_template("failure_delete.html", admin=current_user.admin)
 
 @app.route("/submission", methods=["POST"])
 @login_required
@@ -201,6 +224,7 @@ def submission():
                     (eventdate, people, details, op)
                 )
                 db.commit()
+                
             elif group == "competition":
                 db = get_db()
                 db.execute(
@@ -213,7 +237,8 @@ def submission():
             paradesq = ''
             classroom = ''
             hall = ''
-            pac = ''
+            pac = '' 
+            audi = ''
             paradesq_list = request.form.getlist("paradesq")
             for a in paradesq_list:
                 paradesq = paradesq + a + ' '
@@ -226,18 +251,21 @@ def submission():
             pac_list = request.form.getlist("pac")
             for a in pac_list:
                 pac = pac + a + ' '
+            audi_list = request.form.getlist("audi")
+            for a in audi_list:
+                audi = audi + a + ' '
             db = get_db()
             db.execute("""
                 UPDATE flagraising
-                SET paradesq=?, classroom=?, hall=?, pac=?
-            """, (paradesq, classroom, hall, pac))
+                SET paradesq=?, classroom=?, hall=?, pac=?, audi=?
+            """, (paradesq, classroom, hall, pac, audi))
             db.commit()
 
-        return render_template("success.html")
+        return render_template("success.html", admin=current_user.admin)
     else:
         return "Unauthorized user"
 
-
+ 
 @app.route("/login")
 def login():
     # Find out what URL to hit for Google login
@@ -287,7 +315,7 @@ def callback():
     userinfo_endpoint = google_provider_cfg["userinfo_endpoint"]
     uri, headers, body = client.add_token(userinfo_endpoint)
     userinfo_response = requests.get(uri, headers=headers, data=body)
-
+    temp = year + "Y"
     # We want to make sure their email is verified.
     # The user authenticated with Google, authorized our
     # app, and now we've verified their email through Google!
@@ -295,7 +323,7 @@ def callback():
         users_email = userinfo_response.json()["email"]
         if users_email[-7:] == "@dhs.sg":
             users_classid = userinfo_response.json()["given_name"]
-            if users_classid[:3] == "19Y" or users_classid[:5].lower() == "staff":
+            if users_classid[:3] == temp or users_classid[:5].lower() == "staff":
                 unique_id = userinfo_response.json()["sub"]
                 picture = userinfo_response.json()["picture"]
                 users_name = userinfo_response.json()["family_name"]
@@ -305,7 +333,7 @@ def callback():
             return "You are not from DHS!"
     else:
         return "User email not available or not verified by Google.", 400
-
+    users_email = userinfo_response.json()["email"]
     # Doesn't exist? Add to database
     if not User.get(unique_id):
         if users_classid[:5].lower() == "staff" or users_email in PERMS:
@@ -330,15 +358,9 @@ def callback():
 
 @app.route("/logout")
 def logout():
-    
-    
-    print(current_user)
-    
-    
+   # print(current_user)
     if current_user.is_authenticated:
         logout_user()
-        
-        
         print("Logout")
     userinfo_endpoint = requests.get(GOOGLE_DISCOVERY_URL).json()["userinfo_endpoint"]
     uri, headers, body = client.add_token(userinfo_endpoint)
@@ -358,35 +380,14 @@ def bootstrap():
     return render_template('testbootstrap.html')
 
 #normal flask cmd run
-'''
-if __name__ == "__main__":
-    app.run(ssl_context="adhoc", debug=True)
 
-'''
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-#run for webview
 
-import webview
-import click
-import os
-import threading
-import sys
-
-#@click.command()
-#@click.option('--port', default=5000, help='Port number')
-#@click.option('--host', default='localhost', help='Host name')
-def start_server(port, host):
-    # Architected this way because my console_scripts entry point is at
-    # start_server.
-
-    kwargs = {'host': host, 'port': port}
-    t = threading.Thread(target=app.run, daemon=True, kwargs=kwargs)
-    t.start()
-
-    webview.create_window("Dunmanapp",
-                          "http://127.0.0.1:{0}".format(port))
-    webview.start(debug=True)
-    sys.exit()
-
-if __name__ == "__main__":
-    start_server(5000, '127.0.0.1')
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    #app.debug = False
+    #for normal local testing use this run
+    app.run(ssl_context="adhoc",host='127.0.0.1', port=port, debug=True)
+    #for deployment to heroku app use this
+    #app.run(host='0.0.0.0', port=port, debug=True)
+    

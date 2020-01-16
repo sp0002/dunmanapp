@@ -4,4 +4,5 @@ CREATE TABLE flagraising (
   classroom TEXT,
   hall TEXT,
   pac TEXT,
+  audi TEXT,
 );

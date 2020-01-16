@@ -1,0 +1,50 @@
+{% extends "testbootstrap.html" %}
+
+{% block body %}
+<!--<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<script src="static/scripts/announcements.js"></script>
+<section>
+  <br>
+  <br>
+  <br>
+  <br>
+ <h1>Here are the Thought of the weeks:</h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>List of thoughts</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for thought in totw %}
+        <tr>
+          <td>{{ thought[3] }}</td>
+          <td>{{ thought[1] }}</td>
+          <td>{{ thought[2] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+
+
+
+{% endblock %}

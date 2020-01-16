@@ -1,0 +1,35 @@
+{% extends "testbootstrap.html" %}
+
+{% block body %}
+<!--<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+<div id="main">
+  <h2>Here are some links to other websites:</h2>
+</div>
+
+<table id="t01a" class="center">
+  <tr>
+    <th>Websites</th>
+  </tr>
+  <tr>
+    <td><a href="https://dunmanhigh.moe.edu.sg/">School Website</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://dhis.dhs.sg/">DHIS</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://vle.learning.moe.edu.sg/login">SLS</a></td>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
