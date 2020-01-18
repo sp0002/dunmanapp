@@ -50,6 +50,7 @@ except sqlite3.OperationalError:
     # Assume it's already been created
     pass
 
+#admin emails
 PERMS = ["ivan.ng.qifan@dhs.sg","gu.boyuan@dhs.sg","wee.jiawei.kevan@dhs.sg", "khoo.phaikchoo.carina@dhs.sg", "xun.shengdi@dhs.sg", "mathew.rithu.ann@dhs.sg", "liu.yixuan@dhs.sg", "tee.renwey@dhs.sg", "lim.valerie@dhs.sg"]
 
 # OAuth2 client setup
@@ -99,6 +100,14 @@ def competition():
     connection.close()
     return render_template("competition.html", admin=current_user.admin, competitions=competitions)
 
+@app.route("/competition_details")
+@login_required
+def competition_details():
+    
+    #add the read database here
+    
+    return render_template("competition_details.html", admin=current_user.admin)
+
 @app.route("/announcements")
 @login_required
 def announcements():
@@ -120,14 +129,14 @@ def announcements():
 
     return render_template("announcements.html", admin=current_user.admin, announcements=announcements)
 
-@app.route("/annoucements_details")
+@app.route("/announcement_details")
 @login_required
 def announcements_details():
     
     #insert read databse
     
     
-    return render_template("announcements_details", admin=current_user.admin)
+    return render_template("announcement_details.html", admin=current_user.admin)
 
 @app.route("/links")
 @login_required
@@ -345,6 +354,7 @@ def callback():
 
 @app.route("/logout")
 def logout():
+    
    # print(current_user)
     if current_user.is_authenticated:
         logout_user()
