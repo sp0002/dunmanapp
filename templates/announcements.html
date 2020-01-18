@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>
 <script src="static/scripts/announcements.js"></script>
 <head> 
   <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -11,43 +12,31 @@
 
 <h1 class="header">Announcements:</h1>
 
-{% for announcement in announcements %}
-<div class="box">
-  <h1 class="box-title">{{ announcement[1] }}</h1>
-  <h1 class="box-detail">{{ announcement[4] }} ...</h1>
-  <div class="box-bottom">
-    <h1 class="box-people">{{ announcement[3] }}</h1>
-    <h1 class="box-date">{{ announcement[2] }}</h1>
-  </div>
-</div>
-{% endfor %}
+<form action="/announcement_details" method="get">
 
-<!-- 
-<div class="tbl-header">
-  <table cellpadding="0" cellspacing="0" border="0">
-    <thead>
-      <tr>
-        <th>Announcements</th>
-        <th>Valid for</th>
-        <th>Personnel Involved</th>
-      </tr>
-    </thead>
-  </table>
-</div>
-<div class="tbl-content">
-  <table cellpadding="0" cellspacing="0" border="0">
-    <tbody>
-    {% for announcement in announcements %}
-      <tr>
-        <td><a href="announcement_details.html">{{ announcement[3] }}</a></td>
-        <td>{{ announcement[1] }}</td>
-        <td>{{ announcement[2] }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-</div>
-</section>
--->
+  {% for announcement in announcements %}
+    <div style="text-align:center;">
+      <button type="submit" name="id" value="{{ announcement[0] }}" class="box">
+        
+        <h1 class="box-title">
+          {% if announcement[1]|length > 100 %}
+            {{ announcement[1][0:100] }} ...
+          {% else %}
+            {{ announcement[1] }}
+          {% endif %}
+        </h1>
+        
+        <h1 class="box-detail">{{ announcement[4] }} ...</h1>
+        
+        <div class="box-bottom">
+          <h1 class="box-people">{{ announcement[3] }}</h1>
+          <h1 class="box-date">{{ announcement[2] }}</h1>
+        </div>
+        
+      </button>
+    </div>
+  {% endfor %}
+
+</form>
 
 {% endblock %}
