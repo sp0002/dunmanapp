@@ -1,0 +1,23 @@
+{% extends "testbootstrap.html" %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<!--<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>-->
+<script src="static/scripts/announcements.js"></script>
+
+<h1 class="header">Details:</h1>
+
+<div class="box">
+  <h1 class="title">{{ totw[1] }}</h1>
+  <h1 class="date">{{ totw[2] }}</h1>
+
+  <div class="box-bottom2">
+    <h1 class="details-header">Full text</h1>
+    <h1 class="details">{{ totw[3] }}</h1>
+  </div>
+</div>
+
+
+{% endblock %}

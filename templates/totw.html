@@ -1,37 +1,42 @@
 {% extends "testbootstrap.html" %}
 
 {% block body %}
+
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<!--<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>-->
 <script src="static/scripts/announcements.js"></script>
-<section>
-  <br>
-  <br>
-  <br>
-  <br>
- <h1>Here are the Thought of the weeks:</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>List of thoughts</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        {% for thought in totw %}
-        <tr>
-          <td>{{ thought[3] }}</td>
-          <td>{{ thought[1] }}</td>
-          <td>{{ thought[2] }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
+<head> 
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+
+<h1 class="header">Announcements:</h1>
+
+<form action="/totw_details" method="get">
+
+  {% for tot in totw %}
+    <div style="text-align:center;">
+      <button type="submit" name="id" value="{{ tot[0] }}" class="box">
+        
+        <h1 class="box-title">
+          {% if tot[1]|length > 100 %}
+            {{ tot[1][0:100] }} ...
+          {% else %}
+            {{ tot[1] }}
+          {% endif %}
+        </h1>
+        
+        <h1 class="box-detail">{{ tot[3] }}</h1>
+        
+        <div class="box-bottom">
+          <!--<h1 class="box-people">{{ tot[2] }}</h1>-->
+          <h1 class="box-date">{{ tot[2] }}</h1>
+        </div>
+        
+      </button>
+    </div>
+  {% endfor %}
+
+</form>
 
 {% endblock %}

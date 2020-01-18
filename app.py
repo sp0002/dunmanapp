@@ -144,11 +144,6 @@ def announcement_details():
     connection.close()
     return render_template("announcement_details.html", admin=current_user.admin, announcement=announcement)
 
-@app.route("/links")
-@login_required
-def links():
-    return render_template("links.html", admin=current_user.admin)
-
 
 @app.route("/totw")
 @login_required
@@ -160,6 +155,25 @@ def totw():
     connection.commit()
     connection.close()
     return render_template("totw.html", admin=current_user.admin, totw=totw)
+
+@app.route("/totw_details")
+@login_required
+def totw_details():
+    _id = request.args.get("id")
+    connection = sqlite3.connect("sqlite_db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM totw WHERE id={}".format(_id))
+    totw = cursor.fetchone()
+    connection.commit()
+    connection.close()    
+    return render_template("totw_details.html", admin=current_user.admin, totw=totw)
+
+
+@app.route("/links")
+@login_required
+def links():
+    return render_template("links.html", admin=current_user.admin)
+
 
 @app.route("/submit")
 @login_required
