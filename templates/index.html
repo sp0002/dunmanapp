@@ -2,55 +2,59 @@
 
 {% block body %}
 
-<!-- Use any element to open the sidenav 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>
+
+<head> 
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
 
 <div id="main">
-  <h1 style="text-align:center;">Welcome {{ user_email }} </h1>
+  <h1 style="text-align:center;">
+    Welcome
+    <br>
+    {{ user_email }}!
+  </h1>
 </div>
 
-<table id="t01a" class="center">
-  <tr>
-    <th>Level</th>
-    <th>Venue</th>
-  </tr>
-  <tr>
-    <td>Year 1</td>
-    <td>{{ levels[0][1] }}</td> 
-  </tr>
-  <tr>
-    <td>Year 2</td>
-    <td>{{ levels[0][2] }}</td>
-  </tr>
-  <tr>
-    <td>Year 3</td>
-    <td>{{ levels[0][3] }}</td>
-  </tr>
-  <tr>
-    <td>Year 4</td>
-    <td>{{ levels[0][4] }}</td>
-  </tr>
-  <tr>
-    <td>Year 5</td>
-    <td>{{ levels[0][5] }}
-  </td>
-  <tr>
-    <td>Year 6</td>
-    <td>{{ levels[0][6] }}
-  </td>
-  <tr>
-    <td>Staff</td>
-    <td>{{ levels[0][7] }}
-  </td>
-</table>
-<br>
-<br>
-<br>
-<p>                                                        
+<div class="box">
+  <h1 class="box-title">Flag Raising Venues</h1>
+  <div class="box-bottom">
+    <div class="flex-container">
+      <h1 class="box-left">Year 1</h1>
+      <h1 class="box-right">{{ levels[0][1] }}</h1>
+    </div>
 
+    <div class="flex-container">
+      <h1 class="box-left">Year 2</h1>
+      <h1 class="box-right">{{ levels[0][2] }}</h1>
+    </div>
 
+    <div class="flex-container">
+      <h1 class="box-left">Year 3</h1>
+      <h1 class="box-right">{{ levels[0][3] }}</h1>
+    </div>
 
+    <div class="flex-container">
+      <h1 class="box-left">Year 4</h1>
+      <h1 class="box-right">{{ levels[0][4] }}</h1>
+    </div>
 
-</p>
+    <div class="flex-container">
+      <h1 class="box-left">Year 5</h1>
+      <h1 class="box-right">{{ levels[0][5] }}</h1>
+    </div>
+
+    <div class="flex-container">
+      <h1 class="box-left">Year 6</h1>
+      <h1 class="box-right">{{ levels[0][6] }}</h1>
+    </div>
+
+    <div class="flex-container">
+      <h1 class="box-left">Staff</h1>
+      <h1 class="box-right">{{ levels[0][7] }}</h1>
+    </div>
+  </div>  
+</div>
+
 {% endblock %}

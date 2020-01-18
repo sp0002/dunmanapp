@@ -62,7 +62,7 @@
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-
+/*
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -70,11 +70,11 @@
     .sidenav a {
         font-size: 18px;
     }
-}
-
+}*/
 body {
     background-color: #e9ecef;
     padding-bottom: 50px;
+    font-family: "Source Sans Pro";
 }
 
 .options {
@@ -91,11 +91,6 @@ body {
 
 * {
     box-sizing: border-box
-}
-
-body {
-    font-family: Verdana, sans-serif;
-    margin: 0
 }
 
 .mySlides {
@@ -224,18 +219,6 @@ img {
     }
 }
 
-
-/* On smaller screens, decrease text size */
-
-@media only screen and (max-width: 300px) {
-    .prev,
-    .next,
-    .text {
-        font-size: 11px
-    }
-}
-
-
 /*DHS table for announcements*/
 
 table#t01a {
@@ -272,6 +255,77 @@ td {
 
 table#t01a tr:hover {
     background-color: #0AB5B8;
+}
+
+.box {
+    width: 50%;
+    background-color: white;
+    border: 3px solid white;
+    box-shadow: 0px 3px 5px lightgrey;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+
+.box-bottom {
+    border-top: 3px solid #e9ecef;
+    border-radius: 0px;
+    padding: 30px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-title {
+    font-size: 40px;
+    color: black;
+    margin: 20px;
+    word-wrap: break-word; 
+    text-align: center;
+}
+
+.box-left {
+    font-size: 24px;
+    color: grey;
+    margin: 10px;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.box-right {
+    font-size: 24px;
+    color: grey;
+    margin: 10px;
+    margin-right: 10%;
+    text-align: center;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+        width: 95%;
+    }
+    .box-title {
+        font-size: 28px;
+    }
+    .box-left {
+        font-size: 18px;
+    }
+    .box-right {
+        font-size: 18px;
+    }
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 
