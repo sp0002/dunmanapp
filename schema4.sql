@@ -1,8 +1,10 @@
 CREATE TABLE flagraising (
   id INTEGER PRIMARY KEY,
-  paradesq TEXT,
-  classroom TEXT,
-  hall TEXT,
-  pac TEXT,
-  audi TEXT,
+  y1 TEXT,
+  y2 TEXT,
+  y3 TEXT,
+  y4 TEXT,
+  y5 TEXT,
+  y6 TEXT,
+  staff TEXT
 );

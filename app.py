@@ -91,7 +91,7 @@ def competition():
     now = datetime.now()
     i = 0
     while i < len(competitions):
-        eventdate = datetime.strptime(competitions[i][1], "%Y-%m-%d")
+        eventdate = datetime.strptime(competitions[i][2], "%Y-%m-%d")
         if now > eventdate + timedelta(days=1):
             cursor.execute("DELETE FROM competition WHERE id={}".format(competitions[i][0]))
             competitions.pop(i)
@@ -119,7 +119,7 @@ def announcements():
     now = datetime.now()
     i = 0
     while i < len(announcements):
-        eventdate = datetime.strptime(announcements[i][1], "%Y-%m-%d")
+        eventdate = datetime.strptime(announcements[i][2], "%Y-%m-%d")
         if now > eventdate + timedelta(days=1):
             cursor.execute("DELETE FROM announcement WHERE id={}".format(announcements[i][0]))
             announcements.pop(i)
