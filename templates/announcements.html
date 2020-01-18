@@ -1,52 +1,51 @@
 {% extends "testbootstrap.html" %}
 
 {% block body %}
-<!--<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div>
 
-<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
 <script src="static/scripts/announcements.js"></script>
 <section>
-  <br>
-  <br>
-  <br>
-  <br>
- <h1>Here are the announcements for today:</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Announcements</th>
-          <th>Valid for</th>
-          <th>Personnel Involved</th>
-        </tr>
-      </thead>
-    </table>
+
+<h1 class="header">Announcements:</h1>
+
+{% for announcement in announcements %}
+<div class="box">
+  <h1 class="box-title">{{ announcement[1] }}</h1>
+  <h1 class="box-detail">{{ announcement[4] }} ...</h1>
+  <div class="box-bottom">
+    <h1 class="box-people">{{ announcement[3] }}</h1>
+    <h1 class="box-date">{{ announcement[2] }}</h1>
   </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-      {% for announcement in announcements %}
-        <tr>
-          <td><a href="announcement_details.html">{{ announcement[3] }}</a></td>
-          <td>{{ announcement[1] }}</td>
-          <td>{{ announcement[2] }}</td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
+</div>
+{% endfor %}
+
+<!-- 
+<div class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr>
+        <th>Announcements</th>
+        <th>Valid for</th>
+        <th>Personnel Involved</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tbl-content">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+    {% for announcement in announcements %}
+      <tr>
+        <td><a href="announcement_details.html">{{ announcement[3] }}</a></td>
+        <td>{{ announcement[1] }}</td>
+        <td>{{ announcement[2] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
 </section>
-
-
-
-
-
-
+-->
 
 {% endblock %}
