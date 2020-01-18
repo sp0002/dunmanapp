@@ -104,9 +104,6 @@ def competition():
 @login_required
 def competition_details():
     
-    #add the read database here
-    
-    return render_template("competition_details.html", admin=current_user.admin)
 
 @app.route("/announcements")
 @login_required
