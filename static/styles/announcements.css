@@ -1,7 +1,3 @@
-body {
-    background-color: #e9ecef;
-}
-
 .header {
     font-size: 40px;
     color: black;
@@ -57,55 +53,32 @@ body {
     height: 46px;
 }
 
-
-
-
-table {
-    width: 100%;
-    /*this forces it to go to next column*/
-    table-layout: fixed;
-}
-
-.tbl-header {
-    background-color: rgb(0, 92, 230);
-}
-
-.tbl-content {
-    /*   background-color: #152DDB;
-    background-image: linear-gradient(173deg, rgb(51, 102, 255, 0.3), rgb(255, 30, 30, 1));*/
-    height: 500px;
-    overflow-x: auto;
-    margin-top: 0px;
-    border: 1px solid rgba(0, 0, 0, 0.678);
-}
-
-th {
-    padding: 20px 15px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 18px;
-    color: #000000;
-    text-transform: uppercase;
-}
-
-td {
-    padding: 15px;
-    text-align: left;
-    vertical-align: middle;
-    font-weight: 500;
-    font-size: 15px;
-    color: #000000;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.678);
-}
-
 @media only screen and (max-width: 300px) {
-    th {
-        font-size: 12px;
+    .header {
+        margin: 0px;
     }
-    td {
-        font-size: 10px;
+    .box {
+        width: 100%;
+    }
+    .box-title {
+        font-size: 28px;
+    }
+    .box-detail {
+        font-size: 16px;
+    }
+    .box-people {
+        font-size: 14px;
+    }
+    .box-date {
+        font-size: 14px;
+    }
+    .box-bottom {
+        height: 40px;
     }
 }
+
+
+
 
 
 /* demo styles */
