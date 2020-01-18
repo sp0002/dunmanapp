@@ -12,8 +12,8 @@
 <form action="/submission" method="post">
   <h4>Submitting for {{group}}: </h4>
     <select name="group">
-        {% if group == 'competitions' %}
-        <option selected value="competitions">Competitions</option>
+        {% if group == 'competition' %}
+        <option selected value="competition">Competitions</option>
         {% endif %}
         {% if group == 'announcements' %}
         <option selected value="announcements">Announcements</option>
@@ -73,8 +73,7 @@
     <input type="radio" name="staff" value="Auditorium"> Auditorium <br>
     <input type="radio" name="staff" value="PAC"> PAC <br>
     <br>
-    
-    {% elif group == "announcements" %}
+    {% elif group == "announcements" or group == "competition" or group == "totw" %}
     <h4>Title: </h4>
     <textarea rows="1" cols='40' name="title" required></textarea>
     <br>
@@ -91,28 +90,6 @@
     <input type="checkbox" name="people" value="Y5"> Year 5 <br>
     <input type="checkbox" name="people" value="Y6"> Year 6 <br>
     <input type="checkbox" name="people" value="Staff"> Staff <br>
-
-    <hr size=0 width=0%>
-
-    <h4>Details: </h4>
-    <textarea rows="4" cols='40' name="details" required></textarea>
-    <br>
-
-    {% elif group == "competitions" %}
-    <h4>Title: </h4>
-    <textarea rows="1" cols='40' name="title" required></textarea>
-    <br>
-
-    <h4>Date of event:</h4>
-    <input type="date" name="eventdate" required>
-    <hr size=0 width=0%>
-
-    <h4>People involved:</h4>
-    <select name="people">
-        {% for i in cca %}
-        <option value="{{ i }}">{{ i }}</option>
-        {% endfor %}
-    </select>
 
     <hr size=0 width=0%>
 
