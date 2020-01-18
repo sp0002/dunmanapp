@@ -99,6 +99,18 @@ def competition():
     connection.close()
     return render_template("competition.html", admin=current_user.admin, competitions=competitions)
 
+@app.route("/competition_details")
+@login_required
+def competition_details():
+    _id = request.args.get("id")
+    connection = sqlite3.connect("sqlite_db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM competition WHERE id={}".format(_id))
+    competition = cursor.fetchone()
+    connection.commit()
+    connection.close()
+    return render_template("competition_details.html", admin=current_user.admin, competition=competition)
+
 @app.route("/announcements")
 @login_required
 def announcements():
@@ -117,12 +129,11 @@ def announcements():
             i += 1
     connection.commit()
     connection.close()
-
     return render_template("announcements.html", admin=current_user.admin, announcements=announcements)
 
 @app.route("/announcement_details")
 @login_required
-def announcements_details():
+def announcement_details():
     _id = request.args.get("id")
     connection = sqlite3.connect("sqlite_db")
     cursor = connection.cursor()
@@ -161,8 +172,15 @@ def submit():
 @login_required
 def submit2():
     group = request.form.get("group")
+    cca = ['Air Weapons Club', 'Art Club', 'Badminton', 'Basketball', 'Beijing Opera', 'Bowling', 'Chinese Orchestra (including Guzheng Ensemble)', 
+    'Chinese Society', 'Choir', 'Community Service Club', 'Culinary Club', "d'movement", 'Dance Society', 'Debates', 'Drama', 'English Drama Society', 
+    'Environmental Club', 'Fashion Studies Club', 'Frisbee', 'Girl Guides', 'Golf', 'Guitar Ensemble', 'Infocomm Club', 'International Strategic Affairs Council (ISAC)', 
+    'Japanese Cultural Club', 'Library Society', 'Malay Cultural Club', 'Mass Communication Club', 'Mathematics Society', 'Medical Society', 'Mind Sports Club', 
+    'Modern Dance', 'NPCC', 'Netball', 'Oratorical Society', 'Outdoor Activities Club (ODAC)', 'PA Crew (Techies)', 'Photographic Society', 'Public Speaking', 
+    'Publications', 'Robotics Club', 'SJAB', 'Sailing', 'Science Society', 'Scouts', 'Singapore Youth Flying Club (SYFC)', 'Soccer', 'Softball', 'String Ensemble', 
+    'Symphonic Band', 'Table Tennis', 'Taekwondo', 'Tennis', 'Touch Rugby', 'Track & Field', 'Volleyball', 'Wushu', 'Youth Club']
     if current_user.admin == 1:
-        return render_template("submit2.html", admin=current_user.admin, group=group)
+        return render_template("submit2.html", admin=current_user.admin, group=group, cca=cca)
     else:
         return "Unauthorized user"
 
@@ -171,17 +189,16 @@ def submit2():
 def submission():
     if current_user.admin == 1:
         group = request.form.get("group")
-        if group == "announcements" or group == "competition":
+        if group == "announcements" or group == "competitions":
             title = request.form.get("title")
             eventdate = request.form.get("eventdate")
-            people_list = request.form.getlist("people")
-            people = ""
-            for a in people_list:
-                people = people + a + ", "
-            people = people[:-2]
             details = request.form.get("details")
-
             if group == "announcements":
+                people_list = request.form.getlist("people")
+                people = ""
+                for a in people_list:
+                    people = people + a + ", "
+                people = people[:-2]
                 db = get_db()
                 db.execute(
                     "INSERT INTO announcement (title, eventdate, people, details) "
@@ -190,7 +207,8 @@ def submission():
                 )
                 db.commit()
                 
-            elif group == "competition":
+            elif group == "competitions":
+                people = request.form.get("people")
                 db = get_db()
                 db.execute(
                     "INSERT INTO competition (title, eventdate, people, details) "
