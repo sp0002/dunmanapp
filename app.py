@@ -68,10 +68,9 @@ def index():
         connection = sqlite3.connect("sqlite_db")
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM flagraising")
-        venues = cursor.fetchall()
+        levels = cursor.fetchall()
         connection.close()
-        user_email = current_user.name
-        return render_template("index.html", admin=current_user.admin, venues=venues, user_email=user_email)
+        return render_template("index.html", admin=current_user.admin, levels=levels, user_email=current_user.name)
     else:
         return render_template("login2.html")
 
@@ -173,6 +172,58 @@ def submit2():
     else:
         return "Unauthorized user"
 
+@app.route("/submission", methods=["POST"])
+@login_required
+def submission():
+    if current_user.admin == 1:
+        group = request.form.get("group")
+        if group == "announcements" or group == "competition":
+            title = request.form.get("title")
+            eventdate = request.form.get("eventdate")
+            people_list = request.form.getlist("people")
+            people = ""
+            for a in people_list:
+                people = people + a + ", "
+            people = people[:-1]
+            details = request.form.get("details")
+
+            if group == "announcements":
+                db = get_db()
+                db.execute(
+                    "INSERT INTO announcement (title, eventdate, people, details) "
+                    "VALUES (?, ?, ?, ?)",
+                    (title, eventdate, people, details)
+                )
+                db.commit()
+                
+            elif group == "competition":
+                db = get_db()
+                db.execute(
+                    "INSERT INTO competition (title, eventdate, people, details) "
+                    "VALUES (?, ?, ?, ?)",
+                    (title, eventdate, people, details)
+                )
+                db.commit()
+        else:
+            y1 = request.form.get("y1")
+            y2 = request.form.get("y2")
+            y3 = request.form.get("y3")
+            y4 = request.form.get("y4")
+            y5 = request.form.get("y5")
+            y6 = request.form.get("y6")
+            staff = request.form.get("staff")
+            
+            db = get_db()
+            db.execute("""
+                UPDATE flagraising
+                SET y1=?, y2=?, y3=?, y4=?, y5=?, y6=?, staff=?
+            """, (y1, y2, y3, y4, y5, y6, staff))
+            db.commit()
+
+        return render_template("success.html", admin=current_user.admin)
+    else:
+        return "Unauthorized user"
+
 @app.route("/delete")
 @login_required
 def delete():
@@ -209,71 +260,6 @@ def deletion():
         return render_template("success_delete.html", admin=current_user.admin)
     else:
         return render_template("failure_delete.html", admin=current_user.admin)
-
-@app.route("/submission", methods=["POST"])
-@login_required
-def submission():
-    if current_user.admin == 1:
-        group = request.form.get("group")
-        if group == "announcements" or group == "competition":
-            eventdate = request.form.get("eventdate")
-            people_list = request.form.getlist("people")
-            people = ""
-            for a in people_list:
-                people = people + a + " "
-            details = request.form.get("details")
-            op = current_user.email
-
-            if group == "announcements":
-                db = get_db()
-                db.execute(
-                    "INSERT INTO announcement (eventdate, people, details, op) "
-                    "VALUES (?, ?, ?, ?)",
-                    (eventdate, people, details, op)
-                )
-                db.commit()
-                
-            elif group == "competition":
-                db = get_db()
-                db.execute(
-                    "INSERT INTO competition (eventdate, people, details, op) "
-                    "VALUES (?, ?, ?, ?)",
-                    (eventdate, people, details, op)
-                )
-                db.commit()
-                
-        else:
-            paradesq = ''
-            classroom = ''
-            hall = ''
-            pac = '' 
-            audi = ''
-            paradesq_list = request.form.getlist("paradesq")
-            for a in paradesq_list:
-                paradesq = paradesq + a + ' '
-            classroom_list = request.form.getlist("classroom")
-            for a in classroom_list:
-                classroom = classroom + a + ' '
-            hall_list = request.form.getlist("hall")
-            for a in hall_list:
-                hall = hall + a + ' '
-            pac_list = request.form.getlist("pac")
-            for a in pac_list:
-                pac = pac + a + ' '
-            audi_list = request.form.getlist("audi")
-            for a in audi_list:
-                audi = audi + a + ' '
-            db = get_db()
-            db.execute("""
-                UPDATE flagraising
-                SET paradesq=?, classroom=?, hall=?, pac=?, audi=?
-            """, (paradesq, classroom, hall, pac, audi))
-            db.commit()
-
-        return render_template("success.html", admin=current_user.admin)
-    
-    else:
-        return "Unauthorized user"
 
  
 @app.route("/login")

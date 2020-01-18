@@ -23,65 +23,72 @@
         {% endif %}
     </select>
     <hr size=0 width=0%>
-
     {% if group == 'morning' %}
-    <h4>Parade Square:</h4>
-    <input type="checkbox" name="paradesq" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="paradesq" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="paradesq" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="paradesq" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="paradesq" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="paradesq" value="Year 6"> Year 6 <br>
-    <input type="checkbox" name="paradesq" value="Staff"> Staff <br>
-
-    <h4>Homeroom/Classroom:</h4>
-    <input type="checkbox" name="classroom" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="classroom" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="classroom" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="classroom" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="classroom" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="classroom" value="Year 6"> Year 6 <br>
-    <input type="checkbox" name="classroom" value="Staff"> Staff <br>
-
-    <h4>Hall:</h4>
-    <input type="checkbox" name="hall" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="hall" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="hall" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="hall" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="hall" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="hall" value="Year 6"> Year 6 <br>
-    <input type="checkbox" name="hall" value="Staff"> Staff <br>
-
-    <h4>Performing Arts Center:</h4>
-    <input type="checkbox" name="pac" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="pac" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="pac" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="pac" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="pac" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="pac" value="Year 6"> Year 6 <br>
-    <input type="checkbox" name="pac" value="Staff"> Staff <br>
-
-    <h4>Auditorium:</h4>
-    <input type="checkbox" name="audi" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="audi" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="audi" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="audi" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="audi" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="audi" value="Year 6"> Year 6 <br>
-    <input type="checkbox" name="audi" value="Staff"> Staff <br>
-
+    <h4>Year 1:</h4>
+    <input type="radio" name="y1" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y1" value="Classroom"> Classroom <br>
+    <input type="radio" name="y1" value="Hall"> Hall <br>
+    <input type="radio" name="y1" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y1" value="PAC"> PAC <br>
+    <br>
+    <h4>Year 2:</h4>
+    <input type="radio" name="y2" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y2" value="Classroom"> Classroom <br>
+    <input type="radio" name="y2" value="Hall"> Hall <br>
+    <input type="radio" name="y2" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y2" value="PAC"> PAC <br>
+    <br>
+    <h4>Year 3:</h4>
+    <input type="radio" name="y3" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y3" value="Classroom"> Classroom <br>
+    <input type="radio" name="y3" value="Hall"> Hall <br>
+    <input type="radio" name="y3" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y3" value="PAC"> PAC <br>
+    <br>
+    <h4>Year 4:</h4>
+    <input type="radio" name="y4" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y4" value="Classroom"> Classroom <br>
+    <input type="radio" name="y4" value="Hall"> Hall <br>
+    <input type="radio" name="y4" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y4" value="PAC"> PAC <br>
+    <br>
+    <h4>Year 5:</h4>
+    <input type="radio" name="y5" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y5" value="Classroom"> Classroom <br>
+    <input type="radio" name="y5" value="Hall"> Hall <br>
+    <input type="radio" name="y5" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y5" value="PAC"> PAC <br>
+    <br>
+    <h4>Year 6:</h4>
+    <input type="radio" name="y6" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="y6" value="Classroom"> Classroom <br>
+    <input type="radio" name="y6" value="Hall"> Hall <br>
+    <input type="radio" name="y6" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="y6" value="PAC"> PAC <br>
+    <br>
+    <h4>Staff:</h4>
+    <input type="radio" name="staff" value="Parade Square"> Parade Square <br>
+    <input type="radio" name="staff" value="Classroom"> Classroom <br>
+    <input type="radio" name="staff" value="Hall"> Hall <br>
+    <input type="radio" name="staff" value="Auditorium"> Auditorium <br>
+    <input type="radio" name="staff" value="PAC"> PAC <br>
+    <br>
     {% elif group == "announcements" or group == "competition" or group == "totw" %}
+    <h4>Title: </h4>
+    <textarea rows="1" cols='40' name="title" required></textarea>
+    <br>
+
     <h4>Date of event:</h4>
     <input type="date" name="eventdate" required>
     <hr size=0 width=0%>
 
     <h4>People involved:</h4>
-    <input type="checkbox" name="people" value="Year 1"> Year 1 <br>
-    <input type="checkbox" name="people" value="Year 2"> Year 2 <br>
-    <input type="checkbox" name="people" value="Year 3"> Year 3 <br>
-    <input type="checkbox" name="people" value="Year 4"> Year 4 <br>
-    <input type="checkbox" name="people" value="Year 5"> Year 5 <br>
-    <input type="checkbox" name="people" value="Year 6"> Year 6 <br>
+    <input type="checkbox" name="people" value="Y1"> Year 1 <br>
+    <input type="checkbox" name="people" value="Y2"> Year 2 <br>
+    <input type="checkbox" name="people" value="Y3"> Year 3 <br>
+    <input type="checkbox" name="people" value="Y4"> Year 4 <br>
+    <input type="checkbox" name="people" value="Y5"> Year 5 <br>
+    <input type="checkbox" name="people" value="Y6"> Year 6 <br>
     <input type="checkbox" name="people" value="Staff"> Staff <br>
 
     <hr size=0 width=0%>
