@@ -1,3 +1,7 @@
+body {
+    font-family: "Source Sans Pro";
+}
+
 .header {
     font-size: 40px;
     color: black;
@@ -19,6 +23,8 @@
     font-weight: bold;
     color: black;
     margin: 20px;
+    word-wrap: break-word; 
+    text-align: left;
 }
 
 .box-detail {
@@ -29,6 +35,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
 }
 
 .box-people {
@@ -37,6 +44,7 @@
     margin: 10px;
     margin-left: 20px;
     float: left;
+    text-align: left;
 }
 
 .box-date {
@@ -45,6 +53,7 @@
     margin: 10px;
     margin-right: 20px;
     float: right;
+    text-align: right;
 }
 
 .box-bottom {
@@ -77,18 +86,45 @@
     }
 }
 
-
-
-
-
-/* demo styles */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body {
-    /*background: linear-gradient(to right, #25c481, #25b7c4);*/
-    font-family: 'Roboto', sans-serif;
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    word-wrap: break-word; 
+    text-align: left;
 }
 
-section {
-    margin: 50px;
+.date {
+    font-size: 22px;
+    color: grey;
+    margin: 20px;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.box-bottom2 {
+    border-top: 3px solid #e9ecef;
+    border-radius: 0px;
+}
+
+.details-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    word-wrap: break-word; 
+    text-align: left;
+}
+
+.details {
+    font-size: 24px;
+    font-weight: normal;
+    color: grey;
+    margin: 20px;
+    word-wrap: break-word; 
+    text-align: left;
 }

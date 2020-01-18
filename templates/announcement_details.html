@@ -1,20 +1,27 @@
 {% extends "testbootstrap.html" %}
 
 {% block body %}
-<!--<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div>
 
-<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>
 <script src="static/scripts/announcements.js"></script>
 
-<!--TITLE-->
-<h1> {{ }} </h1> 
+<h1 class="header">Announcement Details:</h1>
 
+<div class="box">
+  <h1 class="title">{{ announcement[1] }}</h1>
+  <h1 class="date">{{ announcement[2] }}</h1>
+  
+  <div class="box-bottom2">
+    <h1 class="details-header">People Involved</h1>
+    <h1 class="details">{{ announcement[3] }}</h1>
+  </div>
 
+  <div class="box-bottom2">
+    <h1 class="details-header">Announcement Details</h1>
+    <h1 class="details">{{ announcement[4] }}</h1>
+  </div>
+</div>
 
 {% endblock %}

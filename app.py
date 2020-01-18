@@ -120,14 +120,17 @@ def announcements():
 
     return render_template("announcements.html", admin=current_user.admin, announcements=announcements)
 
-@app.route("/annoucements_details")
+@app.route("/announcement_details")
 @login_required
 def announcements_details():
-    
-    #insert read databse
-    
-    
-    return render_template("announcements_details", admin=current_user.admin)
+    _id = request.args.get("id")
+    connection = sqlite3.connect("sqlite_db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM announcement WHERE id={}".format(_id))
+    announcement = cursor.fetchone()
+    connection.commit()
+    connection.close()
+    return render_template("announcement_details.html", admin=current_user.admin, announcement=announcement)
 
 @app.route("/links")
 @login_required
@@ -175,7 +178,7 @@ def submission():
             people = ""
             for a in people_list:
                 people = people + a + ", "
-            people = people[:-1]
+            people = people[:-2]
             details = request.form.get("details")
 
             if group == "announcements":
