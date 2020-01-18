@@ -2,25 +2,27 @@
 
 {% block body %}
 <link href="https://fonts.googleapis.com/css?family=EB+Garamond|PT+Sans:400,400i,700,700i&subset=latin-ext" rel="stylesheet">
-<!-- Use any element to open the sidenav
-<button class="options" <span id="options" onclick="openNav()"></span><i class="fa fa-home"></i></button>-->
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
-
+<!-- Use any element to open the sidenav-->
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <form action="/deletion" method="post">
 <div id="main">
     <h1 align="center">Confirm delete Submission?</h1>
     <select name="group">
+
         {% if group == 'competition' %}
         <option selected value="competition">Competitions</option>
         {% endif %}
+
         {% if group == 'announcement' %}
         <option selected value="announcement">Announcements</option>
         {% endif %}
+
     </select>
 </div>
 
 <div class='container'>
+
     {% if group == 'announcement' %}
     <table id="t01a">
       <tr>
@@ -29,6 +31,7 @@
         <th>Valid for</th>
         <th>Personnel Involved</th>
       </tr>
+
       {% for detail in details %}
       <tr>
         <td><input type="radio" name="todelete" value="{{detail[0]}}"></td>
@@ -37,8 +40,10 @@
         <td>{{ detail[2] }}</td>
       </tr>
       {% endfor %}
+
     </table>
     {% endif %}
+
     {% if group == 'competition' %}
     <table id="t01a">
       <tr>
@@ -48,6 +53,7 @@
         <th>Date</th>
         <th>Personnel Involved</th>
       </tr>
+
       {% for detail in details %}
       <tr>
         <td><input type="radio" name="todelete" value="{{detail[0]}}"></td>
@@ -58,8 +64,8 @@
       {% endfor %}
 
     </table>
-
     {% endif %}
+
     <input type="submit" value="Submit">
     <a href = "/delete"><button type="button">Back</button></a>
 </form>
