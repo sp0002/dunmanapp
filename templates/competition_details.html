@@ -3,221 +3,25 @@
 {% block body %}
 
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='styles/announcement_details.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>
 <script src="static/scripts/announcements.js"></script>
 
-<!--TITLE-->
+<h1 class="header">Competition Details:</h1>
+
+<div class="box">
+  <h1 class="title">{{ competition[1] }}</h1>
+  <h1 class="date">{{ competition[2] }}</h1>
+  
+  <div class="box-bottom2">
+    <h1 class="details-header">People Involved</h1>
+    <h1 class="details">{{ competition[3] }}</h1>
+  </div>
+
+  <div class="box-bottom2">
+    <h1 class="details-header">Competition Details</h1>
+    <h1 class="details">{{ competition[4] }}</h1>
+  </div>
+</div>
 
-<br>
-<br>
-<br>
-<br>
-<h1>TESTING</h1> 
-<body>
-  <section>
-    <br>
-    <div class="tbl-header">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <thead>
-          <tr>
-            <th>Details of</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-    <div class="tbl-content">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-          <tr>
-            <td>
-              <p>
-                The headline reads: “Nation Shudders At Large Block Of Uninterrupted Text.”
-
-                “Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.
-
-                “Dumbfounded citizens from Maine to California gazed helplessly at the frightening chunk of print, unsure of what to do next.
-
-                “Without an illustration, chart, or embedded YouTube video to ease them in, millions were frozen in place, terrified by the sight of one long, unbroken string of English words.
-
-                ” ‘It demands so much of my time and concentration,’ said Chicago resident Dale Huza, who was confronted by the confusing mound of words early Monday afternoon. ‘This large block of text, it expects me to figure everything out on my own, and I hate it.’ ”
-
-                This is a sign of how rough the outlook sometimes seems for our culture of reading and writing.
-
-                In fact, every generation fears the death of literacy at the hands of some new media technology. And yet I’m here to share some optimism. After long existence as a confirmed cynic who shared the general belief in our imminent cultural doom, I felt an unfamiliar sensation 15 years ago when the Internet came over the horizon: I found myself becoming excited and hopeful.
-
-                When I looked at the Internet I saw a medium that involves a huge amount of reading. Sure, a lot of it is presented in a highly decorated or distracting form. But a lot of it is in large blocks of uninterrupted text, too!
-
-                And there’s something even more significant: The Web isn’t just inspiring a lot of reading. it has also opened the opportunity for a stunning amount of new writing.
-
-                When I was growing up in the 1960s and 70s, the chief fear on behalf of literary culture was that television was going to destroy it. What if we were becoming a nation of passive, glassy-eyed couch potatoes — mindless consumers of numbing video entertainment?
-
-                To some extent, that happened. Yet we survived! And then something came along that challenged TV. The Web was a two-way medium. Each consumer was also a potential creator or contributor in a way that never happened, couldn’t happen, with television. That’s a huge transformation of our media landscape, And we’re still just getting our heads around it.
-
-                So this is the National Day on Writing. I confess I didn’t know there was such a thing till I got this invitation. I’m delighted there is. But it’s an odd construction: “Day *on* writing.” It sort of sounds like those old ads that went, “This is your brain on drugs.”
-
-                Think about it: What is “your brain on writing” — or even “our world on writing”? That’s what I’m going to talk about today.
-
-                So this Day on Writing is a great thing. I admit, when I first heard it, I thought it was “day *of* writing.” You know: What are we doing here? We should all be writing, right now! Of course, the only way to be a writer is to write frequently, regularly — ideally, daily.
-
-                You could always do this, long before there was any such thing as a blog. You could keep a diary or a notebook or a commonplace book. but you couldn’t do it in public, for an audience. Now pretty much anyone can do that. And that’s changed our world in some big ways — some welcome, some distressing.
-
-                When I titled my book “Say Everything” I don’t think I realized quite what I was getting into. It turns out to be a really interesting title.
-
-                First of all, I promise I will not even attempt to say everything myself today. I’ll talk for maybe 30, 35 minutes, and then open it up for more of a conversation — which is very much the spirit of this topic, anyway.
-
-                Pretty soon after I started working on this book I realized that the title was sort of a taunt to myself. Say everything? Saying everything is a writer’s dream. It’s what you think you’ll get to do when you write a book. Get it all between covers! Then you learn that a book ends up feeling really short. And you never get to say more than a fraction of what you want.
-
-                The title also turned out to be problematic, because everyone, from my first radio interviewer on, gets it wrong. They say “Say *Anything*.” So don’t worry about it if you do, too. I don’t mind — it’s OK. I’m used to it. But my advice is, don’t give your book a title that’s just a little different from a popular old movie’s name.
-
-                I chose the title because it seems to touch on so much of what’s exciting and what’s threatening, too, about blogging and all the other changes that we call, collectively, the digital revolution. “Say everything”: the phrase suggests the thrill of the universal project the Web sometimes seems to be, in which everyone gets to contribute to a vast collective conversation and pool of knowledge. “Say everything” also raises all kinds of questions about this new world. If we say everything, how will we have time to listen? And, “Aren’t some things better left unsaid?” So these are some of the things I’m going to look at today.
-
-                Now, a little about the book itself. SAY EVERYTHING tells the story of blogging. Where did this thing come from? Who got it going, and what were their stories? So it’s a kind of contemporary history. I get two reactions when I say that: One group of people, in the technology industry, thinks blogging is now old hat. It’s over. They’ll say, “Blogging? That’s SO 1999!” They’ve already moved on. The other group, which I think is bigger than the first group, says: History? Blogging? What history? It’s so new!
-
-                In fact, blogging by that name is now a decade old, and websites that were really blogs in all but name have been around since roughly the mid ’90s. There’s a lot of history — a lot of stories — tales of what happens when people get the chance to say everything they want to in public. I think these stories have a lot to teach us about how to navigate the opportunities and pitfalls of life online.
-
-                The culture of Silicon Valley, the tech industry and the Web tends to have a very short memory. And even though the story of how blogging began is a recent one, it’s not that well known. I wrote “Say Everything” because I thought it would be good to get this story down while it’s still fresh. And I was lucky — I’d watched a lot of it first hand.
-
-                I built my first website in 1994. And I want to take you back to those days, the early days of the Web. Have any of you seen a video that was circulating a while back called “Medieval Help Desk”? Look it up when you have a chance. This is the one where the medieval monk in Scandinavia is freaked out about this new thing called a “book.” He’s used to scrolls! Books are a weird new interface. He has to ask a helpdesk guy to explain to him how to open it, how to turn pages, and so on. He’s afraid the text will disappear when he closes the covers.
-
-                It’s a reminder that every technology we take for granted today was once forbidding and unfamiliar. The Web was the same way at first.
-
-                So back then I was the technology editor at Salon.com. My job was to find and assign stories about the Web and computing. We needed one story a week at first — later, we really cranked it up to one story a day. We’d take that story and edit it and illustrate it and publish it with a certain amount of loving care. And people liked it — we did good work — but we could only do so much.
-
-                There were a bunch of other websites that I found myself returning to over and over during the course of my day. Because every time I returned to them, they seemed to have something new. These sites didn’t put a lot of time and effort into each story. In fact, they didn’t really publish stories — they posted items. Some of these sites were produced by professionals; others were one-man shows, amateur efforts. They all shared some traits: they tended to be written in a casual, personal voice. they linked a lot. And they didn’t have a “lead story” or “top story.” Each time they posted something new, it went at the top of the page.
-
-                Now, I was an editor. I spent lots of time in meetings that were held for the purpose of deciding what goes on top of the page. And here these sites were saying, “Go home. We don’t need you to do that.” So this was a little distressing to me as an editor.
-
-                And yet I kept going back to these sites. They worked. They got news out fast. And they were easy to use. What these early bloggers had discovered was a way of organizing writing that was native to the Web. It made such sense that it took off. It wasn’t an import from print or broadcasting. It was discovered by outsiders who fell in love with the Web and what it could do.
-
-                SAY EVERYTHING tells some of their stories. So let me get a reading: How many of you read blogs? How many write a blog?
-
-                To answer these questions you probably had to pause and ask: What exactly is a blog? We don’t have a formal definition, do we? The usual definition of “blog” is: A personal website where the newest material goes on top — often with lots of links to other sites. That definition is pretty neutral. It describes a form.
-
-                But blogging was also the embodiment of a vision: The idea that the web should be two way — that we should be writing it as well as reading it. The spread of blogging represented the first time this idea of a two-way web got implemented on a really large scale. That’s why I think the story of blogging is worth our time as we see our culture filling up with ever more efficient variations on this idea –led by Facebook and Twitter and multiplying on all these ever smaller and more versatile little devices that we carry in our pockets.
-
-                In SAY EVERYTHING I tried to sort of follow a spark that started among software developers, and then spread to upstart journalists and political writers and concerned citizens, and then out into the business world and pop culture and beyond. This spark carried the ideas of blogging into wider and wider circles of society. Let’s look at what those ideas were.
-
-                The first idea is self-expression. Blogs are usually written in the first person and they are most often autobiographical. This is not, in itself, revolutionary. The ideal of self-expression isn’t some late-20th-century innovation. It has a long pedigree. I think of Walt Whitman’s Song of Myself. the essays of Montaigne. the diaries of Samuel Pepys. The confessions of St. Augustine.
-
-                The difference today is that the opportunity is much more widely available to express yourself in public. In the early days of the web people began to realize this. One of those people was a guy named Justin Hall whose story opens my book.
-
-                He was a student at Swarthmore in the mid-90s who told the story of his life as he lived it every day on the Web — then discovered the limits of that way of being. His tale is instructive for all of us in the Facebook age. Justin found that, tempting as it is to try to say everything, it can really mess up your life. For any of us to say everything about our life isn’t really possible and probably isn’t a good idea.
-
-                The second idea at the heart of blogging is novelty. With a blog, the new stuff goes on top. This appeals to our innate sensory makeup. Our brains are finely tuned to sense what’s new inour environment. If a cat walked across this stage over there — and this has happened to me! — you’d stop paying any attention to me. The cat would be the new thing here. Blogs feed that.
-
-                This is also a temptation, of course. It can lead us toward superficiality. We can find ourselves skimming the surface of the present And neglecting the timeless.
-
-                This doesn’t worry me as much as it might. Because the Web has a beautiful duality at its heart. The stuff we post online is often ephemeral, of the moment, but it’s also archival. It has a staying power that our spoken words don’t. However casual our online writing may be, it is still writing.
-
-                This brings me to the third idea at the heart of blogging, which is linking — connection. Links are pretty mundane: they just take you from one page to another, right? But links also represent paths of our attention. The links that bloggers put into their posts leave trails of meaning. These trails tell us what’s of note and lasting value in the vast pile of stuff we’re accumulating online. They sort out the present and leave a record for the future. Their value can be really simple, like: helping you find something you want to reread. They also provide usable data for programs and services that can mine unexpected meaning from our collective writing output. That’s how Google built what is still the most valuable tool for finding anything on the Web.
-
-                So we have self-expression. Novelty. And links. Put that all together and you get a picture of what kind of writing blogging is: Personal, immediate, and connected. If you understand that, you can see why it has become so popular, even though so many of us looked at it at first and thought, what’s the big deal?
-
-                Once it became popular, blogging also became the target of a series of criticisms about subjects like trust and truth, anonymity and civility, narcissism and shallowness, overload and addiction. These criticisms are worth spending some time on. They are proxies of a sort for the larger debate we’re all having today over the role of the Internet in our society and whether it is a force for good or ill.
-
-                I want to begin here with a story. it’s about a blogger named Joey deVilla who calls himself Accordion Guy. (Cause he plays an accordion.) And it’s a story that didn’t make it into Say Everything – so you can think of this as a kind of bonus track.
-
-                Now, to understand this story you need to know one thing in advance. If you study computer science, you know it already. There’s this problem in computer science called P=NP. Doesn’t matter right now what it is. What’s important is, nobody can prove that P=NP. If you could prove it, you’d get a million dollar prize. Hasn’t happened yet. It’s an unsolved problem.
-
-                Anyway, here’s the story: Joey DeVilla is a computer programmer and blogger who plays an accordion. In 2003 he wrote a long post about a very strange situation. He’d started dating someone he called the New Girl and begun writing about his excitement at this new relationship. He even wrote a post on “Ten cool things about the New Girl.” Then he gets an email telling him: “Stop. You don’t know this person. I do. Everything she tells you about her life, including a lot of those ten cool things, is a lie. She’s pathological. She’s left behind a long line of people she’s taken advantage of. Beware!”
-
-                So of course Joey DeVilla the Accordion Guy finds this really upsetting. He can’t believe it. He corresponds more with his informant, whom he refers to as Whistleblower. She seems reasonable and for real and what she says is plausible. Joey calls the Web company where New Girl had said she worked. Nobody there has ever heard of her.
-
-                Accordion Guy comes to think Whistleblower might be right. But he has to know, he has to confront New Girl and be sure. So he lays everything out for her. She protests that he’s got it all wrong, she’s telling the truth about everything — for instance, about being a computer programmer with a computer science degree.
-
-                So here’s what Joey DeVilla does: he pulls this trick he remembers from an old episode of Columbo. Here is the conversation as he presents it in the post where he tells this story.
-
-                Me: So you really did graduate from computer engineering?
-                New Girl: Yes I did!
-                Me: And you took the “Algorithms” course?
-                New Girl: Of course!
-                Me: And you have all the papers you wrote?
-                New Girl: Yes! I kept them all, and I’ll show them to you tomorrow!
-                Me: I want to see the one we always called the “Hell Paper” — the mandatory fourth-year paper. You know the one, where we prove that P = NP?
-                New Girl: I did that! I proved P = NP!
-                Me: Gotcha.
-
-                So Accordion Guy sadly concludes that his Whistleblower was right. And he says goodbye to his New Girl. End of story.
-
-                So let’s start looking at this list of criticisms of blogging and the Web, using Joey DeVilla’s story as sort of a lens. Now, the standard take on trust and the Internet is, don’t trust anything you read on the Internet, right? It’s a cesspool of lies! Nobody is who they say they are!
-
-                But now let’s look at this from where Accordion Guy is sitting. This person he met in the “real” world — this person he was having a relationship with — turned out to be a serial liar. And this anonymous whistleblower who contacted him out of the blue on the Internet, through his blog, turns out to be telling the truth.
-
-                This is just one anecdote, of course and, as they say, the plural of anecdote is not “fact.” Still, if you spend a lot of time out there reading blogs and listening to the stories of the people who write them, you do begin to see a pattern. it turns out that there is very little correlation between whether you are online or offline and whether you are telling the truth or lying. It also turns out that people who share their stories in public frequently find that they create a bond with their readers. They expose vulnerabilities to the world. Doing this can invite assault and produce wounds. But it can also invite support and produce growth.
-
-                This problem of trust online comes up not just in personal relations but also in public life. People sometimes say that the rise of blogging means a breakdown in authority. If anyone can say anything and everyone is saying everything, how do we recognize the truth? How do we know who we can trust?
-
-                I’d argue that it’s not a breakdown in authority so much as a change in how we grant that authority. In this new media environment, institutions have relatively less sway. Individual voices have more impact.
-
-                I know that people worry about the spread of misinformation and lies on the Web. And plainly, this is a real problem. But how exactly does this stuff spread? Right now, I’d argue, the all-news cable channels are far more powerful and efficient than the Web is in propagating lies — or “truthiness.” And the worst failures in our media system occur at the faultlines between new media and old media — when broadcast outlets start behaving like little websites. Or when cable channels with huge audiences decide that it’s OK to repeat some lie because, hey, they’re just quoting something somebody said on a blog. The bigger your megaphone, the greater your responsibility.
-
-                We also have to accept that, sadly, gossip and gullibility are parts of human nature. You might know Winston Churchill’s famous line: “A lie is halfway around the world before the truth has a chance to get its boots on.” And that was decades before the Web, right? What the Web does mean is that, today, at least the truth can have a lot more boots on the ground.
-
-                I’m an optimist about the power of open expression on the Web to sort truth from lies over time. There are sites and services that help this process — like Snopes.com and Politifact and even Wikipedia. Of course they’re imperfect. But they rely on good open processes that are as trustworthy in their own way as the traditional newsroom approach.
-
-                150 years ago, in On Liberty, John Stuart Mill wrote about how we obtain a “clearer perception and livelier impression of truth” from “its collision with error.” We all get disturbed and outraged sometimes at the sheer noise level of Internet-style debate. But the next time you do, I think you can take heart. That noise is the sound of “truth’s collision with error.”
-
-                Mill urged us to be willing to “throw ourselves into the mental position of those who think differently from us” — to challenge our beliefs by tossing them in the ring. This is what we should do every time we sit down to write. And it’s one key to improving the balance of truth and lies in our own information diets. Remember that on the Web, we all gravitate toward the writers we agree with — but we’re also never more than a link or a click away from those we disagree with.
-
-                Another frequent complaint about the writing we do on the Web is that so much of it is anonymous. I’ll put it to you that this complaint is overstated. There are anonymous blogs and websites but they are a relative minority. Sometimes bloggers will try to hide their identities because they want to tell stories about their workplaces without losing their jobs or blow the whistle on some institution without risking their necks. But these are rare cases. And even when bloggers are anonymous, the more successful they are, the less successful they’re going to be at staying anonymous. So the guy who began writing about what it’s like to be a waiter at WaiterRant kept his name a secret for a few years. But the more popular he got, the more inevitable it was that we would learn who this waiter was, and where he worked.
-
-                In a similar vein to complaints about anonymity, we hear a lot about the awful manners people display online: The lack of courtesy, the nastiness, the juvenility,the anger. And you do see this. But you don’t see it everywhere. I’d suggest that you see it mostly in spaces that combine two characteristics: high traffic and low rules enforcement. The comments spaces on most news sites perfectly combine these traits which is why their discussions are so often so awful.
-
-                The thing is, the Web didn’t suddenly produce an explosion of creepy rude people. They were always there. They just didn’t have a place to strut their rudeness in public. The answer here is to create spaces that have hosts who set the tone for visitors and enforce community standards — the same standards that keep those rude people in line in the physical world.
-
-                If visitors to your discussions see that real people are having real conversations they are much more likely to do the same. If you look at the comments on Accordion Guy’s story that’s what you see. There’s a big contrast between the kind of interested, thoughtful responses so many bloggers get from their readers and the kind of drive-by stupidity that most professional news sites get from theirs. I think that explains why these two groups have such different understandings of the quality of online discourse.
-
-                The next criticism I want to look at is the idea that the web eliminates serendipity. The medium makes it harder to stumble on interesting stuff to read that we didn’t know about. This is often the lament of people who love paper — magazines and newspapers. They miss the way your eye might land on a catchy headline or photo that might lead you to read something you didn’t know you were interested in. I have to confess I’ve never understood this complaint. I love paper, too. But the Web is like one great serendipity machine.
-
-                Haven’t we all had that experience of starting to look something up — you know, like, the lyrics to White Christmas — then realizing that an entire hour has passed, and somehow we’ve ended up on the Wikipedia article about black holes? Blogs are especially amazing at generating serendipity. If you follow good bloggers you’re putting yourself in the hands of these writers without necessarily knowing what kind of thing they’re going to toss at you next. And if you’re the writer, you never know what you’re going to hear back from the Web. Look at what landed in Accordion Guy’s inbox. Couldn’t have been more relevant, more useful, or more unexpected to him.
-
-                Let’s move on to the next criticism: That bloggers are narcissists. There’s this casual complaint that the Web is narcissistic simply because people are writing about themselves. I think that’s an oversimplification. It’s a little lazy. Yes: a lot of the messages online are casual conversation. These are messages for friends and family — like quick telephone calls. They’re what the social scientists call “phatic” communication, which is defined as “speech used to share feelings or to establish a mood of sociability rather than to communicate information or ideas.”
-
-                Also, yes — there are plenty of people who are narcissists! And they take their narcissism with them wherever they go — including the Web. The Web created an opportunity to display this narcissism, but I don’t think it’s responsible for creating it. Remember that Christopher Lasch wrote his book “The Culture of Narcissism” in 1979 — long before the birth of online media. So sure, some bloggers are narcissistic. But being really successful at blogging usually requires being good at listening as well as speaking.
-
-                Sometimes I think the people complaining about narcissism in blogging are really just objecting to the telling of personal stories, period — which just seems grossly unfair to all the amazing stories that the Web is capturing today. Like Accordion Guy’s or those of some of the people I write about in SAY EVERYTHING or those of countless others I couldn’t fit in.
-
-                The next complaint about the Web is a cousin of the “Blogging is narcissism” idea. This is the notion that the Web is inherently shallow, and that it is undermining the deeper culture of reading books.
-
-                Look, I’m an author. And I’d be the last person to say that the Web and blogs can or should somehow replace books. But have you ever met anyone who does say that? I haven’t! When you commit to reading a book you hand your time and attention over to the author. You agree to let that author’s voice fill your head. It’s a special pleasure. I don’t see it ever vanishing.
-
-                But it’s silly to fail to see how a great blog can also offer a comparable experience. When you commit to reading a blog, you hand your time and attention over to the blogger. You agree to let the blogger’s voice fill your head. A blog is timed differently and delivered differently, but the experience of connection with a writer is similar. There are some important contrasts: An edited book is a more carefully assembled product. A blog is more timely and more porous to other voices. But a blog can be as deep as its writer chooses to make it.
-
-                In today’s news media, in fact, it’s the bloggers who are providing us with the most substance. If you want to understand the really complex issues we face, the science of climate change, or the debate over healthcare reform, or the dreadful mess of our financial system, or any other problem that’s just too intricate to be explained in a news story or short broadcast — it’s the bloggers who specialize in these topics who will fill the cup of your curiosity.
-
-                They will, in fact, overflow it if you let them. Which brings me to the last, and I think most difficult, problem that people raise with the phenomenon of blogging. There’s just so much of it! Millions of people saying everything! How do we keep from feeling overwhelmed? How do we possibly keep up?
-
-                When people ask me that, the first thing I say is, Don’t try. Don’t try to keep up. Do you feel obligated to keep up with all the books that are published each year? There are thousands and thousands. Do you try to see all the movies released each year? Do you go through life thinking, my god, there are 7 billion people on the planet, I’m never going to be able to meet them all? No. We accept that our lives are a limited span of time, And we allocate that time to our family, our friends,our needs and our passions.
-
-                The same logic applies to the explosion of writing and reading that blogging represents. No one can possibly encompass it all. I spent years writing a book on it, but I barely nicked the surface of what’s out there. The answer is not to push ourselves to become ever more efficient information processing machines. Instead, I’d argue we should consider feeling grateful to have this problem. Because when we complain about information overload, what we’re really saying is: There’s more stuff that I want to read than I have time to read. Which is a great problem to have.
-
-                So one way of talking about this situation is to use words like “overload”; another is to use words like “abundance.” it’s the same glass, half-empty or half-full. I was talking recently with an old friend who is a professional book critic. And she said, “You know, it’s a lot harder to find readers today than writers.”
-
-                There’s some truth in this, and it’s worth thinking about. But it’s also not as dire as it sounds. Because I believe that, even if you never end up with more than a handful of readers, writing in public can be its own reward. And I think that’s why so many people take up blogging even when they know they’re never going to get famous or make a lot of money doing it.
-
-                Writing for other people is one of the best ways there is to know our own minds. This is really who we are when we are “on writing”: We are more ourselves. When I worked as a theater critic, people would often come up to me after a show and say, what’d you think? And I’d always have to say, gee, sorry I don’t know yet. Wait till I’ve written my piece. Then I’ll know.
-
-                When I was thinking about what I was going to say today, I ended up doing what I always do: I sat down and wrote a post working through some ideas about just why the experience of writing in public can be so valuable. So if I may, let me read you just a little bit of it, give you the flavor. Here’s what I wrote:
-
-                “Learning to make things changes how we understand and consume those things. When I started reporting the news as a teenager, I read the newspaper differently. When I learned to play guitar in my ’20s, I listened to songs differently. When I first played around with desktop video editing 15 years ago I began watching movies and TV differently. It’s the same with writing: Learning how to write changes how we read — and how we think.”
-
-                Then I quoted a passage from Maryanne Wolf’s excellent book about reading and the brain, Proust and the Squid, in which she describes the work of a psychologist named Lev Vygotsky. Vygotsky’s research showed that “the very process of writing one’s thoughts leads individuals to refine those thoughts and to discover new ways of thinking.”
-
-                Now, writing for an audience is a special and important case: it’s writing with feedback and consequences. The word “empowerment” describes a part of that change: writing is a way of discovering one’s voice and feeling its strength. But writing in public involves discovering the boundaries and limits of that power, too. We learn all the different ways in which we are not the center of the universe. That kind of discovery has a way of helping us grow up fast.
-
-                So when I hear the still-commonplace dismissal of blogging as a trivial pastime or an amateurish hobby, I think, hold on a second. Writing — making texts — changes how we read and think. Every blogger is someone who has learned to read the world differently by writing for the world. The person who has struggled to turn a thought into a blog post, and then seen how that post has been reflected back by readers and other bloggers, is someone who can think more creatively about how sharing might work at other scales and in other contexts. A mind that has changed is more likely to imagine a world that can change.
-
-                One way to assess the impact of blogging is to say that the number of people who have had the experience of writing in public has skyrocketed over the course of the last decade. Let’s say that, pre-Internet, the universe of people with experience writing in public — journalists, authors, scholars — was, perhaps, 100,000 people. And let’s say that, of the hundreds of millions of blogs reported to date, maybe 10 million of them are sustained enough efforts for us to say that their authors have gained real experience writing in public. I’m pulling these numbers out of a hat, trying to err on the conservative side. We still get an expansion of a hundredfold.
-
-                In about a decade, then, we’ve expanded the number of people who’ve experienced writing in public by something like a factor of 100. Today, for way more of us than ever before, writing for one another is a regular part of our existence. With all the problems and the questions that new technologies raise, I still find this an incredibly hopeful development. I’m amazed and delighted that it’s happened in my lifetime. And I can’t wait to see what comes next from this vast and still growing community of keyboards. Even — or especially — if it comes in the form of large blocks of uninterrupted text.
-
-              </p>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </section>
-</body>
 {% endblock %}

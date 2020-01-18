@@ -131,10 +131,7 @@
             margin-top: 20px;
         }
         .box {
-            width: 94%;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-bottom: 1px;
+            width: 100%;
         }
         .box-title {
             font-size: 28px;

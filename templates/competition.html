@@ -2,27 +2,39 @@
 
 {% block body %}
 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
-<div id="main">
-  <h2>Here are the competition updates for today:</h2>
-</div>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/announcements.css')}}">
+<link href="https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro" rel='stylesheet'>
+<script src="static/scripts/announcements.js"></script>
+<section>
 
-<table id="t01a">
-  <tr>
-    <!--Table for announcements-->
-    <th>Updates</th>
-    <th>Date</th>
-    <th>Personnel Involved</th>
-  </tr>
+<h1 class="header">Competitions:</h1>
+
+<form action="/competition_details" method="get">
+
   {% for competition in competitions %}
-  <tr>
-    <td><a href="/competition_details">{{ competition[3] }}</a></td>
-    <td>{{ competition[1] }}</td>
-    <td>{{ competition[2] }}</td>
-  </tr>
+    <div style="text-align:center;">
+      <button type="submit" name="id" value="{{ competition[0] }}" class="box">
+        
+        <h1 class="box-title">
+          {% if competition[1]|length > 100 %}
+            {{ competition[1][0:100] }} ...
+          {% else %}
+            {{ competition[1] }}
+          {% endif %}
+        </h1>
+        
+        <h1 class="box-detail">{{ competition[4] }}</h1>
+        
+        <div class="box-bottom">
+          <h1 class="box-people">{{ competition[3] }}</h1>
+          <h1 class="box-date">{{ competition[2] }}</h1>
+        </div>
+        
+      </button>
+    </div>
   {% endfor %}
 
-</table>
+</form>
 
 {% endblock %}
